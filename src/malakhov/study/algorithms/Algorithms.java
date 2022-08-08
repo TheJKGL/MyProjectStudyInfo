@@ -1,4 +1,6 @@
-package malakhov.study;
+package malakhov.study.algorithms;
+
+import java.util.Arrays;
 
 public class Algorithms {
 
@@ -6,9 +8,12 @@ public class Algorithms {
         //System.out.println(isPolindrom("tenet"));
         //int[] array = {1,2,3,5,6,9,10};
         //System.out.println(binarySearch(array,3));
-        //int[] array = new int[]{64, 42, 73, 41, 31, 53, 16, 24, 57, 42, 74, 55, 36};
+        int[] array = new int[]{64, 42, 73, 41, 31, 53, 16, 24, 57, 42, 74, 55, 36};
+        int[] array2 = new int[]{2, 9, 5, 4, 8, 1, 6, 7};
         //System.out.println(isPrimeNUmber(4));
-        System.out.println(isPrime(23));
+        //System.out.println(isPrime(23));
+        mergeSort(array);
+        System.out.println(Arrays.toString(array));
         //System.out.println(factorial(0));
         //System.out.println(Arrays.toString(bubbleSort(array)));
     }
@@ -142,5 +147,46 @@ public class Algorithms {
             temp[k] = array[i];
         }
         return temp;
+    }
+
+    //рекурсивный
+    public static void mergeSort(int[] array) {
+        if (array.length == 1) {
+            return;
+        }
+
+        int mid = array.length / 2;
+        int[] left = new int[mid];
+        int[] right = new int[array.length - mid];
+
+        System.arraycopy(array, 0, left, 0, mid);
+        System.arraycopy(array, mid, right, 0, array.length - mid);
+
+        mergeSort(left);
+        mergeSort(right);
+        merge(array, right, left);
+    }
+
+    private static void merge(int[] array, int[] right, int[] left) {
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        while (i < left.length && j < right.length) {
+            if (left[i] < right[j]) {
+                array[k] = left[i];
+                i++;
+                k++;
+            } else {
+                array[k] = right[j];
+                k++;
+                j++;
+            }
+        }
+        for (int l = i; l < left.length; l++){
+            array[k] = left[l];
+        }
+        for (int l = j; l < right.length; l++){
+            array[k] = right[l];
+        }
     }
 }
