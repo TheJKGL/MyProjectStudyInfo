@@ -7,7 +7,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="MyProject" level="project" />
+    <orderEntry type="library" name="poject-study-info" level="project" />
     <orderEntry type="module-library">
       <library name="JUnit4">
         <CLASSES>
