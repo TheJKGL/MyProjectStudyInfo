@@ -2,12 +2,7 @@ package malakhov.test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Test {
     public static void main(String[] args) {
@@ -26,5 +21,6 @@ public class Test {
         List<String> list = new ArrayList<>( Arrays.asList("alex", "brian", "charles") );
 
         list.add("baz");
+        System.out.println(list);
     }
 }
