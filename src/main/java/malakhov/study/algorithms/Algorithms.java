@@ -183,10 +183,10 @@ public class Algorithms {
             }
         }
         for (int l = i; l < left.length; l++){
-            array[k] = left[l];
+            array[k++] = left[l];
         }
         for (int l = j; l < right.length; l++){
-            array[k] = right[l];
+            array[k++] = right[l];
         }
     }
 }

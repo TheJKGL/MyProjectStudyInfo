@@ -52,5 +52,11 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.13.4" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:2.0.0" level="project" />
+    <orderEntry type="library" name="Maven: junit:junit:4.13.2" level="project" />
+    <orderEntry type="library" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-maven-lombok:1.6.21" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.6.21" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-common:1.6.21" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations:13.0" level="project" />
   </component>
 </module>
