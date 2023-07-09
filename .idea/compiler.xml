@@ -10,8 +10,5 @@
         <module name="project-study-info" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="project-study-info" target="16" />
-    </bytecodeTargetLevel>
   </component>
 </project>
