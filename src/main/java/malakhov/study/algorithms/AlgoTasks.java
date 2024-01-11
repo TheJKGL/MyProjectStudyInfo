@@ -68,4 +68,34 @@ public class AlgoTasks {
         }
         return result;
     }
+
+    //Давай найдем наибольший общий делитель (НОД).
+    private static void getNod(int a, int b) {
+        if (a == b) {
+            System.out.println(a);
+        } else {
+            if (a > b) {
+                a = a - b;
+            } else {
+                b = b - a;
+            }
+            getNod(a, b);
+        }
+    }
+
+    private static int getNOD(int first, int second) {
+        if (first < 1 || second < 1) {
+            throw new IllegalArgumentException();
+        }
+
+        while (first != second) {
+            if (first > second) {
+                first -= second;
+            }
+            if (second > first) {
+                second -= first;
+            }
+        }
+        return first;
+    }
 }

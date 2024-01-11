@@ -1,5 +1,6 @@
 package malakhov.study.algorithms;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 public class Algorithms {
@@ -103,6 +104,23 @@ public class Algorithms {
             return 1;
         }
         return x * factorial(x - 1);
+    }
+
+    public static String factorial2(int n) {
+        //add your code here
+        if (n < 0) {
+            return "0";
+        }
+
+        if (n == 0) {
+            return "1";
+        }
+
+        BigDecimal result = new BigDecimal(1);
+        for (int i = 1; i <= n; i++) {
+            result = result.multiply(new BigDecimal(i));
+        }
+        return result.toString();
     }
 
     //Сортировка подсчетом подразумевает создание корзин (buckets), в каждой из которых хранится количество элементов исходного массива,
