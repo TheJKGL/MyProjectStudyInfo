@@ -1,4 +1,4 @@
-package malakhov.study;
+package malakhov.test;
 
 import java.util.ArrayList;
 import java.util.List;

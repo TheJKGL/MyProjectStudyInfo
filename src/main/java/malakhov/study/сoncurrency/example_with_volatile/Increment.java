@@ -1,14 +1,13 @@
 package malakhov.study.сoncurrency.example_with_volatile;
 
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class Increment {
-    //private static volatile long count = 0;
-    private static AtomicInteger count = new AtomicInteger(0);
+    private static volatile int count = 0;
+    //private static AtomicInteger count = new AtomicInteger(0);
 
     //ABA -> A B A
     public static void main(String[] args) throws InterruptedException {
-        Thread[] threads = new Thread[20];
+        Thread[] threads = new Thread[2];
 
         long start = System.currentTimeMillis();
         for (int i = 0; i < threads.length; i++) {
@@ -27,15 +26,15 @@ public class Increment {
     private static class IncrementTask implements Runnable {
         @Override
         public void run() {
-            for(int index = 0; index < 10000; index++) {
+            for(int index = 0; index < 1000; index++) {
                 increment();
             }
         }
     }
 
     private static void increment() {
-        count.incrementAndGet();
-        //count++;
+        //count.incrementAndGet();
+        count = count + 1;
         /*try {
             Thread.sleep(1);
         } catch (InterruptedException e) {

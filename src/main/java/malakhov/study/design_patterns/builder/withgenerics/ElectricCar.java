@@ -1,4 +1,4 @@
-package malakhov.study.design_patterns.BuilderDesignPattern.withgenerics;
+package malakhov.study.design_patterns.builder.withgenerics;
 
 public class ElectricCar extends Car {
 

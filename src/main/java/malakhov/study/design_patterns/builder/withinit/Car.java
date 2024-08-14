@@ -1,4 +1,4 @@
-package malakhov.study.design_patterns.BuilderDesignPattern.withinit;
+package malakhov.study.design_patterns.builder.withinit;
 
 public class Car {
 

@@ -1,4 +1,4 @@
-package malakhov.study.design_patterns.BuilderDesignPattern.withoutgenerics;
+package malakhov.study.design_patterns.builder.withoutgenerics;
 
 public class Vehicle {
 
