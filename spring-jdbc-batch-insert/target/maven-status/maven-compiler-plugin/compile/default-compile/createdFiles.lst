@@ -1,0 +1,7 @@
+malakhov/repository/BatchProductRepository.class
+malakhov/repository/SimpleProductRepository.class
+malakhov/repository/ProductRepository.class
+malakhov/SpringJdbcBatchPerformanceApplication.class
+malakhov/service/ProductService.class
+malakhov/model/Product.class
+malakhov/config/AppConfig.class

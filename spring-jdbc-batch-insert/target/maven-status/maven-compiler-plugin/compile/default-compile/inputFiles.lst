@@ -1,0 +1,7 @@
+/Users/yema/IdeaProjects/project-study-info/spring-jdbc-batch-insert/src/main/java/malakhov/SpringJdbcBatchPerformanceApplication.java
+/Users/yema/IdeaProjects/project-study-info/spring-jdbc-batch-insert/src/main/java/malakhov/config/AppConfig.java
+/Users/yema/IdeaProjects/project-study-info/spring-jdbc-batch-insert/src/main/java/malakhov/model/Product.java
+/Users/yema/IdeaProjects/project-study-info/spring-jdbc-batch-insert/src/main/java/malakhov/repository/BatchProductRepository.java
+/Users/yema/IdeaProjects/project-study-info/spring-jdbc-batch-insert/src/main/java/malakhov/repository/ProductRepository.java
+/Users/yema/IdeaProjects/project-study-info/spring-jdbc-batch-insert/src/main/java/malakhov/repository/SimpleProductRepository.java
+/Users/yema/IdeaProjects/project-study-info/spring-jdbc-batch-insert/src/main/java/malakhov/service/ProductService.java
