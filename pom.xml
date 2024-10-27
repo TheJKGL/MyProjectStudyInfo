@@ -12,6 +12,9 @@
     <modules>
         <module>spring-jdbc-batch-insert</module>
         <module>study</module>
+        <module>jdbc-client-tutorial</module>
+        <module>spring-data-streaming</module>
+        <module>custom-orm</module>
     </modules>
 
     <properties>
@@ -19,4 +22,16 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>3.3.3</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

@@ -18,40 +18,45 @@ import java.util.List;
 public class SimpleProductRepository implements ProductRepository {
 
     private final JdbcTemplate jdbcTemplate;
-    private final PGSimpleDataSource pgSimpleDataSource;
+    //private final PGSimpleDataSource pgSimpleDataSource;
     //private final HikariDataSource hikariDataSource;
 
     public SimpleProductRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
-        this.pgSimpleDataSource = new PGSimpleDataSource();
-        this.pgSimpleDataSource.setUser("postgres");
-        this.pgSimpleDataSource.setPassword("password");
-        this.pgSimpleDataSource.setUrl("jdbc:postgresql://localhost:5432/batch-example-db");
+//        this.pgSimpleDataSource = new PGSimpleDataSource();
+//        this.pgSimpleDataSource.setUser("postgres");
+//        this.pgSimpleDataSource.setPassword("password");
+//        this.pgSimpleDataSource.setUrl("jdbc:postgresql://localhost:5432/batch-example-db");
     }
 
     //@Transactional
     public void saveAll(List<Product> products) {
-//        for (Product product : products) {
-//            jdbcTemplate.update("INSERT INTO PRODUCT (TITLE, CREATED_TS, PRICE) VALUES (?, ?, ?)",
-//                    product.getTitle(), Timestamp.valueOf(product.getCreatedTs()), product.getPrice());
-//        }
-        try(Connection connection = pgSimpleDataSource.getConnection()) {
-            connection.setAutoCommit(false);
-
-            PreparedStatement preparedStatement = connection.prepareStatement(generateStatement(products.size()));
-            int counter = 1;
-            for (Product product : products) {
-                preparedStatement.setObject(counter++, product.getTitle());
-                preparedStatement.setObject(counter++, Timestamp.valueOf(product.getCreatedTs()));
-                preparedStatement.setObject(counter++, product.getPrice());
-            }
-
-            int result = preparedStatement.executeUpdate();
-            System.out.println("Number of updates: " + result);
-            connection.commit();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        for (Product product : products) {
+            jdbcTemplate.update("INSERT INTO PRODUCT (TITLE, CREATED_TS, PRICE) VALUES (?, ?, ?)",
+                    product.getTitle(), Timestamp.valueOf(product.getCreatedTs()), product.getPrice());
         }
+//        try(Connection connection = pgSimpleDataSource.getConnection()) {
+//            connection.setAutoCommit(false);
+//
+//            PreparedStatement preparedStatement = connection.prepareStatement(generateStatement(products.size()));
+//            int counter = 1;
+//            for (Product product : products) {
+//                preparedStatement.setObject(counter++, product.getTitle());
+//                preparedStatement.setObject(counter++, Timestamp.valueOf(product.getCreatedTs()));
+//                preparedStatement.setObject(counter++, product.getPrice());
+//            }
+//
+//            int result = preparedStatement.executeUpdate();
+//            System.out.println("Number of updates: " + result);
+//            connection.commit();
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+    }
+
+    @Override
+    public void saveAllRawJdbc(List<Product> products) {
+        saveAll(products);
     }
 
     public String generateStatement(int size) {

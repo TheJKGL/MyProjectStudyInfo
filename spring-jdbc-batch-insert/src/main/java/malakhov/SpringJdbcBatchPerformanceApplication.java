@@ -29,10 +29,12 @@ public class SpringJdbcBatchPerformanceApplication implements CommandLineRunner 
         for (int recordCount : recordCounts) {
             long regularElapsedTime = simpleProductService.createProducts(recordCount);
             long batchElapsedTime = batchProductService.createProducts(recordCount);
+            long rawJdbcBatchElapsedTime = batchProductService.createProductsUsingRawJdbc(recordCount);
 
             System.out.println(String.join("", Collections.nCopies(50, "-")));
             System.out.format("%-20s%-5s%-10s%-5s%8sms\n", "Regular inserts", "|", recordCount, "|", regularElapsedTime);
             System.out.format("%-20s%-5s%-10s%-5s%8sms\n", "Batch inserts", "|", recordCount, "|", batchElapsedTime);
+            System.out.format("%-20s%-5s%-10s%-5s%8sms\n", "Raw JDBC Batch inserts", "|", recordCount, "|", rawJdbcBatchElapsedTime);
             System.out.printf("Total gain: %d %s\n", calculateGainInPercent(regularElapsedTime, batchElapsedTime), "%");
         }
     }

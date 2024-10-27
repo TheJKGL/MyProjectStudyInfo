@@ -31,6 +31,14 @@ public class ProductService {
         return clock.millis() - startTime;
     }
 
+    @Transactional
+    public long createProductsUsingRawJdbc(int count) {
+        List<Product> products = generate(count);
+        long startTime = clock.millis();
+        productRepository.saveAllRawJdbc(products);
+        return clock.millis() - startTime;
+    }
+
     private List<Product> generate(int count) {
         final String[] titles = { "car", "plane", "house", "yacht" };
         final BigDecimal[] prices = {

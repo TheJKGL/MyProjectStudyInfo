@@ -7,8 +7,10 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class AlgoTasks {
     public static void main(String[] args) {
@@ -164,5 +166,38 @@ public class AlgoTasks {
             if (byteCountArray[i] == maxCount) resultList.add(i);
         }
         for (Integer resultItem : resultList) System.out.print(resultItem + " ");
+    }
+
+    public static int sumOfUnique(int[] nums) {
+        HashMap<Integer, Integer> count = new HashMap<>();
+        for (int num : nums) {
+            Integer value = count.get(num);
+            if (value == null) {
+                count.put(num, 1);
+            } else {
+                count.put(num, ++value);
+            }
+        }
+
+        int sum = 0;
+        for (Map.Entry<Integer, Integer> entry : count.entrySet()) {
+            if (entry.getValue() == 1) {
+                sum += entry.getKey();
+            }
+        }
+        return sum;
+    }
+
+    public <T> Set<T> findNonUniqueElements(List<T> inputList) {
+        Set<T> elements = new HashSet<>();
+        Set<T> duplicates = new HashSet<>();
+
+        for (T element : inputList) {
+            if (!elements.add(element)) {
+                duplicates.add(element);
+            }
+        }
+
+        return duplicates;
     }
 }
