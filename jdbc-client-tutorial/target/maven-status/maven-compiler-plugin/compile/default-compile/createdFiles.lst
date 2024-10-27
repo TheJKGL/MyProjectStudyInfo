@@ -1,0 +1,6 @@
+malakhov/StudentController.class
+malakhov/dao/StudentDao.class
+malakhov/model/StudentResultExtractor.class
+malakhov/model/Student.class
+malakhov/model/StudentRowMapper.class
+malakhov/JdbcClientTutorial.class
